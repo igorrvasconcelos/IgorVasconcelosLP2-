@@ -10,17 +10,15 @@ namespace ExercicioRevisao
     {
         static void Main(string[] args)
         {
-            int veic;
             string modelo;
             double km, pot;
 
-            for()
-                Console.WriteLine("Informe o modelo");
-                modelo = Console.ReadLine();
-                Console.WriteLine("Informe a quilometragem");
-                km = double.Parse(Console.ReadLine());
-                Console.WriteLine("Informe a potencia");
-                pot = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe o modelo");
+            modelo = Console.ReadLine();
+            Console.WriteLine("Informe a quilometragem");
+            km = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe a potencia");
+            pot = double.Parse(Console.ReadLine());
 
             string classifRodagem, classifPot;
 
