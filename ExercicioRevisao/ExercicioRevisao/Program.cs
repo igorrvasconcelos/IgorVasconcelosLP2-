@@ -10,43 +10,53 @@ namespace ExercicioRevisao
     {
         static void Main(string[] args)
         {
-            string modelo, Temp, Pot;
-            double km, potencia;
-            int i, qtd;
+
+            int i, qtd, potencia;
+            string nome;
+            double km;
 
             Console.WriteLine("Informe a quantidade de carros");
-            qtd = int.Parse(Console.ReadLine());
+            qtd = Convert.ToInt32(Console.ReadLine());
 
             for (i = 0; i < qtd; i++)
             {
-                Console.WriteLine("Informe o modelo do carro");
-                modelo = Console.ReadLine();
+                Console.WriteLine("Informe o nome do carro");
+                nome = Console.ReadLine();
 
                 Console.WriteLine("Informe a quilometragem do carro");
-                km = Convert.ToDouble(Console.ReadLine());
+                km = double.Parse(Console.ReadLine());
 
                 Console.WriteLine("Informe a potencia do carro");
-                potencia = Convert.ToDouble(Console.ReadLine());
+                potencia = int.Parse(Console.ReadLine());
 
-                if (km < 5000)
-                    Temp = "novo";
+                Console.WriteLine(Classificar(nome, km, potencia));
 
-                else if (km >= 5000 && km <= 30000)
-                    Temp = "seminovo";
-
-                else
-                    Temp = "velho";
-
-                if (potencia > 200)
-                    Pot = "potente";
-
-                else if (potencia > 120 && potencia <= 200)
-                    Pot = "forte";
-
-                else
-                    Pot = "popular";
-                Console.WriteLine("O {0} - {1} - {2}", modelo, Temp, Pot);
             }
+        } //static void main
+
+        public static string Classificar(string modelo, double km, int pot)
+        {
+            string Temp, Pot;
+
+            if (km <= 5000)
+                Temp = "novo";
+
+            else if (km <= 30000)
+                Temp = "seminovo";
+
+            else
+                Temp = "velho";
+
+            if (pot < 120)
+                Pot = "popular";
+
+            else if (pot <= 200)
+                Pot = "forte";
+
+            else
+                Pot = "potente";
+
+            return String.Format("{0} - {1} - {2}", modelo, Temp, Pot);
         }
     }
 }
