@@ -10,33 +10,43 @@ namespace ExercicioRevisao
     {
         static void Main(string[] args)
         {
-            string modelo;
-            double km, pot;
+            string modelo, Temp, Pot;
+            double km, potencia;
+            int i, qtd;
 
-            Console.WriteLine("Informe o modelo");
-            modelo = Console.ReadLine();
-            Console.WriteLine("Informe a quilometragem");
-            km = double.Parse(Console.ReadLine());
-            Console.WriteLine("Informe a potencia");
-            pot = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe a quantidade de carros");
+            qtd = int.Parse(Console.ReadLine());
 
-            string classifRodagem, classifPot;
+            for (i = 0; i < qtd; i++)
+            {
+                Console.WriteLine("Informe o modelo do carro");
+                modelo = Console.ReadLine();
 
-            if (km <= 5000)
-                classifRodagem = "novo";
-            else if (km <= 30000)
-                classifRodagem = "semi novo";
-            else
-                classifRodagem = "velho";
+                Console.WriteLine("Informe a quilometragem do carro");
+                km = Convert.ToDouble(Console.ReadLine());
 
-            if (pot > 200)
-                classifPot = "potente";
-            else if (pot < 200 && pot > 120)
-                classifPot = "forte";
-            else
-                classifPot = "popular";
-            Console.WriteLine("{0} - {1} - {2}", modelo, classifRodagem, classifPot);
-            Console.ReadKey();
+                Console.WriteLine("Informe a potencia do carro");
+                potencia = Convert.ToDouble(Console.ReadLine());
+
+                if (km < 5000)
+                    Temp = "novo";
+
+                else if (km >= 5000 && km <= 30000)
+                    Temp = "seminovo";
+
+                else
+                    Temp = "velho";
+
+                if (potencia > 200)
+                    Pot = "potente";
+
+                else if (potencia > 120 && potencia <= 200)
+                    Pot = "forte";
+
+                else
+                    Pot = "popular";
+                Console.WriteLine("O {0} - {1} - {2}", modelo, Temp, Pot);
+            }
         }
     }
 }
