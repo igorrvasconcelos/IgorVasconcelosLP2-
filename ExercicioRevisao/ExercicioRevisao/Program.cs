@@ -8,62 +8,48 @@ namespace ExercicioRevisao
 {
     class Program
     {
-        struct carro
+        public struct Carro
         {
-            public int pot;
-            public int qtd;
-            public string nome;
-            public double km;
+            public string Modelo;
+            public double Quilometragem;
+            public int Potencia;
+        }
 
-            static void Main(string[] args)
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            Carro[] carros = new Carro[n];
+
+            for (int i = 0; i < n; i++)
             {
-                carro auto;
-                int i;
-
-                Console.WriteLine("Informe a quantidade de carros");
-                auto.qtd = Convert.ToInt32(Console.ReadLine());
-
-                for (i = 0; i < auto.qtd; i++)
-                {
-                    Console.WriteLine("Informe o nome do carro");
-                    auto.nome = Console.ReadLine();
-
-                    Console.WriteLine("Informe a quilometragem do carro");
-                    auto.km = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Informe a potencia do carro");
-                    auto.pot = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine(Classificar(auto.nome, auto.km, auto.pot));
-
-                }
-            } //static void main
-
-            public static string Classificar(string modelo, double km, int potencia)
-            {
-                string T, P;
-
-                if (km <= 5000)
-                    T = "novo";
-
-                else if (km <= 30000)
-                    T = "seminovo";
-
-                else
-                    T = "velho";
-
-                if (potencia < 120)
-                    P = "popular";
-
-                else if (potencia <= 200)
-                    P = "forte";
-
-                else
-                    P = "potente";
-
-                return String.Format("{0} - {1} - {2}", modelo, T, P);
-
+                carros[i].Modelo = Console.ReadLine(); //Palio
+                carros[i].Quilometragem = double.Parse(Console.ReadLine()); //20000
+                carros[i].Potencia = int.Parse(Console.ReadLine()); // 300
             }
+
+            for (int i = 0; i < n; i++)
+                Console.WriteLine(Classificar(carros[i]));
+        }
+
+        public static string Classificar(Carro c)
+        {
+            string classifRodagem, classifPot;
+
+            if (c.Quilometragem <= 5000)
+                classifRodagem = "Novo";
+            else if (c.Quilometragem <= 30000)
+                classifRodagem = "Seminovo";
+            else
+                classifRodagem = "Velho";
+
+            if (c.Potencia < 120)
+                classifPot = "Popular";
+            else if (c.Potencia <= 200)
+                classifPot = "Forte";
+            else
+                classifPot = "Potente";
+
+            return String.Format("{0} - {1} - {2}", c.Modelo, classifRodagem, classifPot);
         }
     }
 }
