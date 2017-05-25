@@ -31,7 +31,7 @@ namespace MesPorExtenso
                 case 10: { m = "outubro"; break; }
                 case 11: { m = "novembro"; break; }
                 case 12: { m = "dezembro"; break; }
-                default: { m = "OPA, FOI TROLLED"; break; }
+                default: { m = "informação invalida"; break; }
             }
 
             Console.WriteLine(" {0} de {1} do ano {2}", dia, mes, ano);
