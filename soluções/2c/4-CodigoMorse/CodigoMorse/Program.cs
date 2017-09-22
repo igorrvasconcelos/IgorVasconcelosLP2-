@@ -10,7 +10,7 @@ namespace CodigoMorse
     {
         static void Main(string[] args)
         {
-            Codigo msg = new Codigo ();
+            Codigo msg = new Codigo();
             int n = 1;
 
             while (n != 0)
